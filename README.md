@@ -1,24 +1,40 @@
-# README
+# VesselTracking
+Vessel tracking API Server.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+====
 
-Things you may want to cover:
+## Requirement
 
-* Ruby version
+```shell
+$ brew install rbenv
+$ brew upgrade ruby-build
+$ rbenv install 3.2.2
+$ gem install bundler
+```
 
-* System dependencies
+## Install
 
-* Configuration
+```shell
+$ bundle install --path=.bundle
+```
 
-* Database creation
+```shell
+$ rake db:create
+$ bundle exec rails db:migrate RAILS_ENV=test
+```
 
-* Database initialization
+## Development
 
-* How to run the test suite
+## run
 
-* Services (job queues, cache servers, search engines, etc.)
+```shell
+$ bundle exec rails s
+```
 
-* Deployment instructions
+## Licence
 
-* ...
+* [No License](https://choosealicense.com/no-permission/)
+
+## Author
+
+[mitsuaki1229](https://github.com/mitsuaki1229)
