@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  reference_number: 1
+  name: MyString
+  naccs_code: MyString
+  owner_id: MyString
+  latest_update_user: MyString
+  remarks: MyText
+
+two:
+  reference_number: 1
+  name: MyString
+  naccs_code: MyString
+  owner_id: MyString
+  latest_update_user: MyString
+  remarks: MyText

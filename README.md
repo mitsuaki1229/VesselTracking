@@ -31,6 +31,10 @@ $ bundle exec rails db:migrate RAILS_ENV=test
 $ bundle exec rails s
 ```
 
+### Confirm
+
+* http://127.0.0.1:3000/vessels
+
 ## Licence
 
 * [No License](https://choosealicense.com/no-permission/)
