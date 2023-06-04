@@ -9,19 +9,23 @@ class VesselsController < ApplicationController
 
   # GET /vessels/1 or /vessels/1.json
   def show
+    # TODO: Change to use case.
   end
 
   # GET /vessels/new
   def new
+    # TODO: Change to use case.
     @vessel = Vessel.new
   end
 
   # GET /vessels/1/edit
   def edit
+    # TODO: Change to use case.
   end
 
   # POST /vessels or /vessels.json
   def create
+    # TODO: Change to use case.
     @vessel = Vessel.new(vessel_params)
 
     respond_to do |format|
@@ -35,6 +39,7 @@ class VesselsController < ApplicationController
 
   # PATCH/PUT /vessels/1 or /vessels/1.json
   def update
+    # TODO: Change to use case.
     respond_to do |format|
       if @vessel.update(vessel_params)
         success_response(format, :ok, "Vessel was successfully updated.")
@@ -46,6 +51,7 @@ class VesselsController < ApplicationController
 
   # DELETE /vessels/1 or /vessels/1.json
   def destroy
+    # TODO: Change to use case.
     @vessel.destroy
     respond_to do |format|
       format.html { redirect_to vessels_url, notice: "Vessel was successfully destroyed." }
