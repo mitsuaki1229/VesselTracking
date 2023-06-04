@@ -1,0 +1,2 @@
+class VoyageHistory < ApplicationRecord
+end

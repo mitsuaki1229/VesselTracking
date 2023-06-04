@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Voyage histories</h1>
+
+<div id="voyage_histories">
+  <% @voyage_histories.each do |voyage_history| %>
+    <%= render voyage_history %>
+    <p>
+      <%= link_to "Show this voyage history", voyage_history %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New voyage history", new_voyage_history_path %>

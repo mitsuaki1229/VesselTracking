@@ -34,6 +34,13 @@ $ bundle exec rails s
 ### Confirm
 
 * http://127.0.0.1:3000/vessels
+* http://127.0.0.1:3000/voyage_histories
+
+### Test
+
+```shell
+$ bundle exec rails test
+```
 
 ## Licence
 

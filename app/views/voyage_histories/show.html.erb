@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @voyage_history %>
+
+<div>
+  <%= link_to "Edit this voyage history", edit_voyage_history_path(@voyage_history) %> |
+  <%= link_to "Back to voyage histories", voyage_histories_path %>
+
+  <%= button_to "Destroy this voyage history", @voyage_history, method: :delete %>
+</div>
