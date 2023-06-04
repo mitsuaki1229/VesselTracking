@@ -58,13 +58,14 @@ class VoyageHistoriesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_voyage_history
-      @voyage_history = VoyageHistory.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def voyage_history_params
-      params.require(:voyage_history).permit(:departure_port, :departure_time, :entry_port, :entering_port_time, :naccs_code, :owner_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_voyage_history
+    @voyage_history = VoyageHistory.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def voyage_history_params
+    params.require(:voyage_history).permit(:departure_port, :departure_time, :entry_port, :entering_port_time, :naccs_code, :owner_id)
+  end
 end

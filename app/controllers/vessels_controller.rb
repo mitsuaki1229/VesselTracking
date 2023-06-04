@@ -3,7 +3,8 @@ class VesselsController < ApplicationController
 
   # GET /vessels or /vessels.json
   def index
-    @vessels = Vessel.all
+    usecase = Vessels::Usecase::VesselsIndex.new
+    @vessels = usecase.exec()
   end
 
   # GET /vessels/1 or /vessels/1.json
@@ -25,11 +26,9 @@ class VesselsController < ApplicationController
 
     respond_to do |format|
       if @vessel.save
-        format.html { redirect_to vessel_url(@vessel), notice: "Vessel was successfully created." }
-        format.json { render :show, status: :created, location: @vessel }
+        success_response(format, :created, "Vessel was successfully created.")
       else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @vessel.errors, status: :unprocessable_entity }
+        error_response(format, :new)
       end
     end
   end
@@ -38,11 +37,9 @@ class VesselsController < ApplicationController
   def update
     respond_to do |format|
       if @vessel.update(vessel_params)
-        format.html { redirect_to vessel_url(@vessel), notice: "Vessel was successfully updated." }
-        format.json { render :show, status: :ok, location: @vessel }
+        success_response(format, :ok, "Vessel was successfully updated.")
       else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @vessel.errors, status: :unprocessable_entity }
+        error_response(format, :edit)
       end
     end
   end
@@ -50,7 +47,6 @@ class VesselsController < ApplicationController
   # DELETE /vessels/1 or /vessels/1.json
   def destroy
     @vessel.destroy
-
     respond_to do |format|
       format.html { redirect_to vessels_url, notice: "Vessel was successfully destroyed." }
       format.json { head :no_content }
@@ -58,13 +54,24 @@ class VesselsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_vessel
-      @vessel = Vessel.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def vessel_params
-      params.require(:vessel).permit(:reference_number, :name, :naccs_code, :owner_id, :latest_update_user, :remarks)
-    end
+  def success_response(format, notice, status)
+    format.html { redirect_to vessel_url(@vessel), notice: notice }
+    format.json { render :show, status: status, location: @vessel }
+  end
+
+  def error_response(format, render)
+    format.html { render render, status: :unprocessable_entity }
+    format.json { render json: @vessel.errors, status: :unprocessable_entity }
+  end
+
+  # Use callbacks to share common setup or constraints between actions.
+  def set_vessel
+    @vessel = Vessel.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def vessel_params
+    params.require(:vessel).permit(:reference_number, :name, :naccs_code, :owner_id, :latest_update_user, :remarks)
+  end
 end
